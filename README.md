@@ -1,0 +1,2 @@
+# fin_statistic
+export_json_poloniex_to_db
