@@ -8,7 +8,7 @@ public class LoaderProperties {
 
     private static LoaderProperties loaderProperties;
 
-    private final String pathToJdbcProperties = "C:/Git/fin_statistic/src/main/resources/jdbc.properties";
+    private final String pathToJdbcProperties = "C:/Git/fin_statistic/jdbc.properties";
     public final String driverClassName;
     public final String login;
     public final String password;

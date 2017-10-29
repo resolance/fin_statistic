@@ -2,6 +2,7 @@ import CreatorListObject.JsonPoloniexObject;
 import CreatorListObject.JsonUrlPoloniexDaoImpl;
 import CreatorListObject.PoloniexDao;
 import ObjectDB.ConnectionHolder;
+import ObjectDB.LoaderProperties;
 import ObjectDB.PoloniexDaoJdbcImpl;
 import ObjectDB.PoloniexDoaJdbc;
 
@@ -25,8 +26,9 @@ public class App_start {
             List<JsonPoloniexObject> jsonPoloniexObjectsList = poloniexDao.getPoloniexObjectList();
 
             //Получим коннект и занесем в БД
-            Class.forName("com.mysql.jdbc.Driver"); // без этой строки не подключается через jar
-            Connection connection = new ConnectionHolder().getConnection();
+            //Class.forName("com.mysql.jdbc.Driver"); // без этой строки не подключается через jar
+            Class.forName(LoaderProperties.getInstance().driverClassName);
+            Connection connection = ConnectionHolder.getInstance().getConnection();
             PoloniexDoaJdbc poloniexDoaJdbc = new PoloniexDaoJdbcImpl(connection);
             for (JsonPoloniexObject jsonObj : jsonPoloniexObjectsList) {
                 poloniexDoaJdbc.insertObject(jsonObj);
