@@ -12,11 +12,11 @@
             <maven.compiler.source>1.8</maven.compiler.source>
             <maven.compiler.target>1.8</maven.compiler.target>
             <directory.extended.library>lib</directory.extended.library>
-            <main.class.app>App_start</main.class.app>
+            <main.class.app>AppStart</main.class.app>
     </properties>
     <build>
         <plugins>
-          <!--  <plugin>
+         <!-- <plugin>
                 <groupId>com.qulice</groupId>
                 <artifactId>qulice-maven-plugin</artifactId>
                 <version>0.17</version>
@@ -30,7 +30,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin> -->
+            </plugin>-->
 
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>

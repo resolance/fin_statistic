@@ -1,14 +1,11 @@
 package ObjectDB;
 
 import CreatorListObject.JsonPoloniexObject;
-import ObjectDB.DBSystemExaption.DBException;
+import ObjectDB.DbSystemException.DbException;
 
 import java.sql.SQLException;
 
 public interface PoloniexDoaJdbc {
-    void insertObject(JsonPoloniexObject jsonPoloniexObject) throws DBException, SQLException;
-
-    void someSelect() throws DBException, SQLException;
-
-
+    void insertObject(JsonPoloniexObject jsonPoloniexObject) throws DbException, SQLException;
+    void someSelect() throws DbException, SQLException;
 }

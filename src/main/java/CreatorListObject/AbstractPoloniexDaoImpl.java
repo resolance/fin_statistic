@@ -3,22 +3,28 @@ package CreatorListObject;
 import java.math.BigDecimal;
 import java.util.*;
 
+/**
+ * @author res
+ *
+ */
+
 public abstract class AbstractPoloniexDaoImpl implements PoloniexDao {
 
     protected List<JsonPoloniexObject> poloniexObjectsList;
 
-    protected void constructListJsonPoloniex(Map<String, LinkedHashMap<String, Object>> stringJsonDetailFromPoloniexMap) {
+    protected void constructListJsonPoloniex(
+            Map<String, LinkedHashMap<String, Object>> stringJsonDetailFromPoloniexMap){
         Set<Map.Entry<String, LinkedHashMap<String, Object>>> entries = stringJsonDetailFromPoloniexMap.entrySet();
 
         Iterator<Map.Entry<String, LinkedHashMap<String, Object>>> iterator = entries.iterator();
 
-        poloniexObjectsList = new ArrayList<>();
+        this.poloniexObjectsList = new ArrayList<>();
         while (iterator.hasNext()) {
             Map.Entry<String, LinkedHashMap<String, Object>> stringLinkedHashMapEntry = iterator.next();
-            JsonPoloniexObject jsonPoloniexObject = createJsonPoloniexObject(
+            final JsonPoloniexObject jsonPoloniexObject = this.createJsonPoloniexObject(
                     stringLinkedHashMapEntry.getKey(), stringLinkedHashMapEntry.getValue()
             );
-            poloniexObjectsList.add(jsonPoloniexObject);
+            this.poloniexObjectsList.add(jsonPoloniexObject);
         }
     }
 
@@ -40,13 +46,13 @@ public abstract class AbstractPoloniexDaoImpl implements PoloniexDao {
 
     @Override
     public List<JsonPoloniexObject> getPoloniexObjectList() {
-        return poloniexObjectsList;
+        return this.poloniexObjectsList;
     }
 
     @Override
-    public JsonPoloniexObject getPair(String namePair) {
+    public JsonPoloniexObject getTokenName(String nameOfToken) {
         for (JsonPoloniexObject jsonPoloniexObject : poloniexObjectsList) {
-            if (namePair.equals(jsonPoloniexObject.getCurrency())) {
+            if (nameOfToken.equals(jsonPoloniexObject.getCurrency())) {
                 return jsonPoloniexObject;
             }
         }

@@ -9,10 +9,10 @@ public class LoaderProperties {
     private static LoaderProperties loaderProperties;
 
     private final String pathToJdbcProperties = "C:/Git/fin_statistic/jdbc.properties";
-    public final String driverClassName;
-    public final String login;
-    public final String password;
-    public final String jdbcUrl;
+    private final String driverClassName;
+    private final String login;
+    private final String password;
+    private final String jdbcUrl;
 
     public static LoaderProperties getInstance() throws Exception {
         if (loaderProperties == null) {
@@ -27,10 +27,10 @@ public class LoaderProperties {
         properties.load(inputStream);
         inputStream.close();
 
-        driverClassName = properties.getProperty("jdbc.driver");
-        login = properties.getProperty("jdbc.username");
-        password = properties.getProperty("jdbc.password");
-        jdbcUrl = properties.getProperty("jdbc.url");
+        this.driverClassName = properties.getProperty("jdbc.driver");
+        this.login = properties.getProperty("jdbc.username");
+        this.password = properties.getProperty("jdbc.password");
+        this.jdbcUrl = properties.getProperty("jdbc.url");
     }
 
     public String getDriver() {

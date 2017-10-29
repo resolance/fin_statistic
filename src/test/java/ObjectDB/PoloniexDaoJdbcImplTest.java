@@ -5,9 +5,20 @@ import CreatorListObject.JsonPoloniexObject;
 import java.math.BigDecimal;
 
 public class PoloniexDaoJdbcImplTest{
-    public static final String INSERT_OBJECT = "insert into db_trade.poloniex_api_stat " +
-            "(id,last,lowestAsk,highestBid,percentChange,baseVolume,quoteVolume,isFrozen,high24hr,low24hr) " +
-            "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+    // TODO: 29.10.2017 заменить в тестах БД на тестовую
+
+    public static final String INSERT_OBJECT = "insert into db_trade.poloniex_api_stat ("
+            + "id,"
+            + "last,"
+            + "lowestAsk,"
+            + "highestBid,"
+            + "percentChange,"
+            + "baseVolume,"
+            + "quoteVolume,"
+            + "isFrozen,"
+            + "high24hr,"
+            + "low24hr) "
+            + "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
     private static String currency = "USDT_USDT";
     private static int id = 999;
@@ -41,8 +52,6 @@ public class PoloniexDaoJdbcImplTest{
 
         try {
             PoloniexDaoJdbcImpl poloniexDaoJdbc = new PoloniexDaoJdbcImpl(connectionHolder.getConnection());
-
-
             poloniexDaoJdbc.someSelect();
             poloniexDaoJdbc.insertObject(jsonPoloniexObject);
             poloniexDaoJdbc.someSelect();

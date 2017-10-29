@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public class JsonPoloniexObject {
     private String currency;
-    public int id;
+    private int id;
     private BigDecimal last;
     private BigDecimal lowestAsk;
     private BigDecimal highestBid;
@@ -106,17 +106,17 @@ public class JsonPoloniexObject {
     @Override
     public String toString() {
         return
-                "\ncurrency: " + currency +
-                        "\n\tid: " + id +
-                        "\n\tlast: " + last.toPlainString() +
-                        "\n\tlowestAsk: " + lowestAsk.toPlainString() +
-                        "\n\thighestBid: " + highestBid.toPlainString() +
-                        "\n\tpercentChange " + percentChange +
-                        "\n\tbaseVolume: " + baseVolume +
-                        "\n\tquoteVolume: " + quoteVolume +
-                        "\n\tisFrozen: " + isFrozen +
-                        "\n\thigh24hr: " + high24hr.toPlainString() +
-                        "\n\tlow24hr: " + low24hr.toPlainString();
+                "\ncurrency: " + currency
+                        + "\n\tid: " + id
+                        + "\n\tlast: " + last.toPlainString()
+                        + "\n\tlowestAsk: " + lowestAsk.toPlainString()
+                        + "\n\thighestBid: " + highestBid.toPlainString()
+                        + "\n\tpercentChange " + percentChange
+                        + "\n\tbaseVolume: " + baseVolume
+                        + "\n\tquoteVolume: " + quoteVolume
+                        + "\n\tisFrozen: " + isFrozen
+                        + "\n\thigh24hr: " + high24hr.toPlainString()
+                        + "\n\tlow24hr: " + low24hr.toPlainString();
     }
 
 }

@@ -1,10 +1,9 @@
 package ObjectDB;
 
-import ObjectDB.DBSystemExaption.DBException;
+import ObjectDB.DbSystemException.DbException;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-
 
 public class ConnectionHolder {
     private static ConnectionHolder connectionHolder;
@@ -27,7 +26,7 @@ public class ConnectionHolder {
 
 
         } catch (Exception e) {
-            throw new DBException("Can't create connection", e);
+            throw new DbException("Can't create connection", e);
         }
     }
 }

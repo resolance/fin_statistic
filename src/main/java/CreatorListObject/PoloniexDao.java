@@ -8,5 +8,5 @@ public interface PoloniexDao {
 
     List<JsonPoloniexObject> getPoloniexObjectList();
 
-    JsonPoloniexObject getPair(String namePair);
+    JsonPoloniexObject getTokenName(String namePair);
 }

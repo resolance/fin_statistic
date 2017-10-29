@@ -7,15 +7,15 @@ public class JsonUrlPoloniexDaoTest {
 
     @Test
     public void load() throws Exception {
-        JsonUrlPoloniexDaoImpl jsonUrlPoloniexDao = new JsonUrlPoloniexDaoImpl("https://poloniex.com/public?command=returnTicker");
+       JsonUrlPoloniexDaoImpl jsonUrlPoloniexDao = new JsonUrlPoloniexDaoImpl("https://poloniex.com/public?command=returnTicker");
         jsonUrlPoloniexDao.load();
 
 
-        JsonPoloniexObject jsObj = jsonUrlPoloniexDao.getPair(nameToken);
+        final JsonPoloniexObject jsObj = jsonUrlPoloniexDao.getTokenName(this.nameToken);
 
-        if (nameToken.equals(jsObj.getCurrency())){
+        if (this.nameToken.equals(jsObj.getCurrency())) {
             System.out.println("JsonPars - DONE");
-        }else{
+        } else {
             System.out.println("Can't reconstruct JSON.");
         }
         //System.out.println("\n" + jsonUrlPoloniexDao.poloniexObjectsList);
