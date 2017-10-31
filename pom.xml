@@ -14,7 +14,7 @@
             <maven.compiler.source>1.8</maven.compiler.source>
             <maven.compiler.target>1.8</maven.compiler.target>
             <directory.extended.library>lib</directory.extended.library>
-            <main.class.app>AppStart</main.class.app>
+            <main.class.app>ru.solovev.fin.statistic.App</main.class.app>
     </properties>
     <build>
         <finalName>fin_statistic</finalName>

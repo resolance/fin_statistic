@@ -1,31 +1,30 @@
-import CreatorListObject.JsonPoloniexObject;
-import CreatorListObject.JsonUrlPoloniexDaoImpl;
-import CreatorListObject.PoloniexDao;
-import ObjectDB.ConnectionHolder;
-import ObjectDB.LoaderProperties;
-import ObjectDB.PoloniexDaoJdbcImpl;
-import ObjectDB.PoloniexDoaJdbc;
+package ru.solovev.fin.statistic;
+
+import ru.solovev.fin.statistic.stock.exchange.poloniex.JsonPoloniexObject;
+import ru.solovev.fin.statistic.stock.exchange.poloniex.JsonUrlPoloniexDaoImpl;
+import ru.solovev.fin.statistic.stock.exchange.poloniex.PoloniexDao;
+import ru.solovev.fin.statistic.persistence.ConnectionHolder;
+import ru.solovev.fin.statistic.persistence.LoaderProperties;
+import ru.solovev.fin.statistic.persistence.PoloniexDaoJdbcImpl;
+import ru.solovev.fin.statistic.persistence.PoloniexDoaJdbc;
 
 import java.sql.Connection;
 import java.util.List;
 import java.util.logging.Logger;
 
-/**
- * Входная точка приложения
- * @author res
- * @version 1.0
- */
-public class AppStart {
-    private static final Logger LOG = Logger.getLogger(AppStart.class.getName());
+public class App {
+    private static final Logger LOG = Logger.getLogger(App.class.getName());
 
     public static void main(String[] args) {
         LOG.info("start app...");
+
         final PoloniexDao poloniexDao = new JsonUrlPoloniexDaoImpl(
                 "https://poloniex.com/public?command=returnTicker");
         try {
             /*Получим список объектов*/
             poloniexDao.load();
-            final List<JsonPoloniexObject> jsonPoloniexObjectsList = poloniexDao.getPoloniexObjectList();
+            final List<JsonPoloniexObject> jsonPoloniexObjectsList =
+                    poloniexDao.getPoloniexObjectList();
 
             /*Получим коннект и занесем в БД*/
             //Class.forName("com.mysql.jdbc.Driver"); // без этой строки не подключается через jar

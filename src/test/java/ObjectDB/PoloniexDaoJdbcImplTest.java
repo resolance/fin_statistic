@@ -1,11 +1,14 @@
 package ObjectDB;
 
-import CreatorListObject.JsonPoloniexObject;
+import ru.solovev.fin.statistic.stock.exchange.poloniex.JsonPoloniexObject;
+import ru.solovev.fin.statistic.persistence.ConnectionHolder;
+import ru.solovev.fin.statistic.persistence.PoloniexDaoJdbcImpl;
 
 import java.math.BigDecimal;
 
 public class PoloniexDaoJdbcImplTest{
     // TODO: 29.10.2017 заменить в тестах БД на тестовую
+    //TODO А лучше использовать БД в памяти H2DB mem
 
     public static final String INSERT_OBJECT = "insert into db_trade.poloniex_api_stat ("
             + "id,"

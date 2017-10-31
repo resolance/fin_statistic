@@ -1,4 +1,4 @@
-package ObjectDB.DbSystemException;
+package ru.solovev.fin.statistic.persistence;
 
 public class DbException extends Exception {
     public DbException(String message) {

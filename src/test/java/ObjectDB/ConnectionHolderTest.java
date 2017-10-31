@@ -1,5 +1,7 @@
 package ObjectDB;
 
+import ru.solovev.fin.statistic.persistence.ConnectionHolder;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
